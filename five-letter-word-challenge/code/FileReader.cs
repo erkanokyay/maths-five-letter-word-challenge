@@ -1,15 +1,15 @@
 namespace five_letter_word_challenge.code;
 
-public class FileReader
+public static class FileReader
 {
-    public  List<string> ReadOnlyFiveLetterWordsFromFile()
+    public static List<string> ReadOnlyFiveLetterWordsFromFile()
     {
         List<string> fiveLetterWords = new List<string>();
         try
         {
-            foreach (string line in System.IO.File.ReadLines("../../../src/words.txt"))
+            foreach (string line in File.ReadLines("../../../src/words.txt"))
             {
-                if(line.Length == 5) fiveLetterWords.Add(line);
+                if(line.Length == 5) fiveLetterWords.Add(line.ToLower());
             }  
            
         }

@@ -1,16 +1,16 @@
 ﻿using five_letter_word_challenge.code;
 
-var fileReader = new FileReader();
+var fiveLetterWordsList =  FileReader.ReadOnlyFiveLetterWordsFromFile();
 
-var x =  fileReader.ReadOnlyFiveLetterWordsFromFile();
+fiveLetterWordsList = ListManipulator.GetOnlyAlphabeticCharactersContainingWords(fiveLetterWordsList);
 
-var listManipulator = new ListManipulator();
+fiveLetterWordsList = ListManipulator.RemoveWordsContainingTheSameCharMultipleTimes(fiveLetterWordsList);
 
-var cleanedUpWords = listManipulator.GetLettersOnly(x);
+fiveLetterWordsList = ListManipulator.TryUniqueWordCombinationsUntilThereAreFive(fiveLetterWordsList);
 
-var theWords = listManipulator.GetFiveFiveLetterWordsWithTwentyFiveUniqueLetters(cleanedUpWords);
-
-foreach (var word in theWords)
+foreach (var word in fiveLetterWordsList)
 {
     Console.WriteLine(word);
 }
+
+Console.ReadKey();
